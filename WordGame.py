@@ -3,16 +3,30 @@
 import random
 
 def inWord(letter, word):
+    for ch in word:
+        if letter == ch:
+            inWord = True
+        else:
+            inWord = False
     """Returns boolean if letter is anywhere in the given word"""
-
     return False
 
 def inSpot(letter, word, spot):
+    correctLetter = word[spot]
+    if letter == correctLetter:
+        inSpot = True
+    else:
+        inSpot = False
     """Returns boolean response if letter is in the given spot in the word."""
-
     return False
 
 def rateGuess(myGuess, word):
+    feedback = ""
+    for spot in range(5):
+        myLetter = myGuess[spot]
+        if inSpot(myLetter, word, spot) == True:
+            feedback = feedback + myLetter.upper()
+        elif inWord
     """Rates your guess and returns a word with the following features.
     - Capital letter if the letter is in the right spot
     - Lower case letter if the letter is in the word but in the wrong spot
